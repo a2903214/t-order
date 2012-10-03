@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project RecImport with libraries in sub-folder">
+	<!--this file was created by Eclipse Runnable JAR Export Wizard-->
+	<!--ANT 1.7 is required                                        -->
+	<target name="create_run_jar">
+		<delete file="./release/torder.jar">
+		</delete>
+		<tstamp prefix="buildtime">
+			<format property="TimeSign" pattern="yyyyMMddHHmmss" />
+		</tstamp>
+		<jar destfile="./release/torder.jar">
+			<manifest>
+				<attribute name="Main-Class" value="com.jy.torder.ui.TOrderApp" />
+				<attribute name="Class-Path" value=". lib/beansbinding-1.2.1.jar lib/mysql-connector-java-5.1.15-bin.jar" />
+				<attribute name="Manifest-Version" value="V1.0.${buildtime.TimeSign}"/>
+			</manifest>
+			<fileset dir="./bin" />
+		</jar>
+	</target>
+</project>
