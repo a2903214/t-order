@@ -39,8 +39,9 @@ public class BaseException extends Exception {
      * unknown.)
      * @since 1.4
      */
+    @SuppressWarnings("null")
     public BaseException(String message, Throwable cause) {
-        super(message, cause);
+        super(message+ ((null!=cause)?"":"\r\n" + cause.getLocalizedMessage()), cause);
     }
 
     /**
@@ -56,7 +57,7 @@ public class BaseException extends Exception {
      * @since 1.4
      */
     public BaseException(Throwable cause) {
-        super(cause);
+        super(((null==cause)? "": cause.getLocalizedMessage()), cause);
     }
 
 }
