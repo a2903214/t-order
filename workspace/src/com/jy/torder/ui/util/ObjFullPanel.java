@@ -294,7 +294,7 @@ public class ObjFullPanel<ObjType> extends JPanel {
         try {
             List<ObjType> objList = service.findAll(conditionPanel.getObj(), conditionPanel.getCondition(), currentPage, pageSize);
             haveResult = (!objList.isEmpty());
-            if (haveResult) {
+            if (currentPage == 1 || haveResult) {
                 tableModel.setObjList(objList);
             }
         } catch (BaseException e1) {
